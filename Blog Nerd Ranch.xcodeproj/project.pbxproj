@@ -27,6 +27,7 @@
 		83C918EE213E173700FD6F83 /* DisplayOrdering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C918E8213DDBD100FD6F83 /* DisplayOrdering.swift */; };
 		83C918EF213E18E500FD6F83 /* PostMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B00B0421362224000C70F9 /* PostMetadata.swift */; };
 		CBE3C41924C33EB1007A9DB1 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE3C41824C33EB1007A9DB1 /* Author.swift */; };
+		CBE3C41C24C5D323007A9DB1 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE3C41B24C5D323007A9DB1 /* DateExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		83B00B0421362224000C70F9 /* PostMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMetadata.swift; sourceTree = "<group>"; };
 		83C918E8213DDBD100FD6F83 /* DisplayOrdering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayOrdering.swift; sourceTree = "<group>"; };
 		CBE3C41824C33EB1007A9DB1 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		CBE3C41B24C5D323007A9DB1 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 		83B00AC821359CFF000C70F9 /* Blog Nerd Ranch */ = {
 			isa = PBXGroup;
 			children = (
+				CBE3C41A24C5D30E007A9DB1 /* Extensions */,
 				83B00B0E21389CD6000C70F9 /* Cells */,
 				83B00B0D21389CB9000C70F9 /* Controllers */,
 				83B00B01213621B1000C70F9 /* Models */,
@@ -176,6 +179,14 @@
 				83B00AFD2135A4C8000C70F9 /* PostMetadataCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		CBE3C41A24C5D30E007A9DB1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CBE3C41B24C5D323007A9DB1 /* DateExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,6 +328,7 @@
 				83B00ACA21359CFF000C70F9 /* AppDelegate.swift in Sources */,
 				83B00B0521362224000C70F9 /* PostMetadata.swift in Sources */,
 				CBE3C41924C33EB1007A9DB1 /* Author.swift in Sources */,
+				CBE3C41C24C5D323007A9DB1 /* DateExtensions.swift in Sources */,
 				83C918E9213DDBD100FD6F83 /* DisplayOrdering.swift in Sources */,
 				8367F7D3215C2E5000C250AC /* PostMetadataDataSource.swift in Sources */,
 				83B00AFC21359FE1000C70F9 /* PostMetadataCollectionViewController.swift in Sources */,

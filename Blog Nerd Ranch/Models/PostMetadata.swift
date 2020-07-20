@@ -15,3 +15,12 @@ struct PostMetadata: Codable {
     let author: Author
     let summary: String
 }
+
+extension PostMetadata {
+    var month: String {
+        if let month = publishDate.get(.month).month {
+            return Calendar.current.monthSymbols[month-1]
+        }
+        return ""
+    }
+}

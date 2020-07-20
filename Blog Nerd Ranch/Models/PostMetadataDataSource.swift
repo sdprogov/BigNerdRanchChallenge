@@ -36,8 +36,16 @@ struct PostMetadataDataSource {
     }
     
     private mutating func createGroups() {
-        // TODO: Group and sort the posts according to the `ordering` value.
-        groups = [Group(name: nil, postMetadata: postMetadataList)]
+        switch ordering.grouping {
+        case .none:
+            groups = [Group(name: nil, postMetadata: postMetadataList)]
+        case .author:
+            groups = Dictionary(grouping: postMetadataList, by: { $0.author.name }).map { Group(name: $0.key, postMetadata: applySorting(postMetadata: $0.value)) }
+        case .month:
+            groups = Dictionary(grouping: postMetadataList, by: { $0.month }).map { Group(name: $0.key, postMetadata: applySorting(postMetadata: $0.value)) }
+        }
+        
+        print("\(groups)")
     }
     
     // MARK: UICollectionViewDataSource convenience
@@ -57,9 +65,24 @@ struct PostMetadataDataSource {
     func postMetadata(at indexPath: IndexPath) -> PostMetadata {
         return groups[indexPath.section].postMetadata[indexPath.row]
     }
- 
-    // MARK: Grouping
-        
+  
     // MARK: Sorting
+    private func applySorting(postMetadata: [PostMetadata]) -> [PostMetadata] {
+        
+        switch ordering.sorting {
+        case .alphabeticalByAuthor(ascending: true):
+            return postMetadata.sorted { $0.author.name.lowercased() < $1.author.name.lowercased() }
+        case .alphabeticalByAuthor(ascending: false):
+            return postMetadata.sorted { $0.author.name.lowercased() > $1.author.name.lowercased() }
+        case .alphabeticalByTitle(ascending: true):
+            return postMetadata.sorted { $0.title.lowercased() < $1.title.lowercased() }
+        case .alphabeticalByTitle(ascending: false):
+            return postMetadata.sorted { $0.title.lowercased() > $1.title.lowercased() }
+        case .byPublishDate(recentFirst: true):
+            return postMetadata.sorted { $0.publishDate < $1.publishDate }
+        case .byPublishDate(recentFirst: false):
+            return postMetadata.sorted { $0.publishDate > $1.publishDate }
+        }
+    }
     
 }
