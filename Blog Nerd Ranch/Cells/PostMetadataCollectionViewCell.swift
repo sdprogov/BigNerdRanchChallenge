@@ -9,38 +9,21 @@
 import UIKit
 
 class PostMetadataCollectionViewCell: UICollectionViewCell {
-    var titleLabel: UILabel!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var authorLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var summaryLabel: UILabel!
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        titleLabel = UILabel(frame: .zero)
-        titleLabel.isAccessibilityElement = true
-        titleLabel.accessibilityTraits = UIAccessibilityTraits.staticText
-        titleLabel.accessibilityLabel = "Post Title"
-        
-        contentView.addSubview(titleLabel)
-        
-        // autolayout
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            titleLabel.leftAnchor.constraint(equalToSystemSpacingAfter: contentView.leftAnchor, multiplier: 1),
-            titleLabel.topAnchor.constraint(equalToSystemSpacingBelow: contentView.topAnchor, multiplier: 1),
-            contentView.rightAnchor.constraint(equalToSystemSpacingAfter: titleLabel.rightAnchor, multiplier: 1),
-            contentView.bottomAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 1)
-        ])
-        
-        // Style the content view with a border & a drop-shadow
-        contentView.backgroundColor = .white
-        contentView.layer.borderColor = UIColor.black.cgColor
-        contentView.layer.borderWidth = 0.5
-        contentView.layer.shadowColor = UIColor.black.cgColor
-        contentView.layer.shadowRadius = 2
-        contentView.layer.shadowOffset = CGSize(width: 0, height: 5)
-        contentView.layer.shadowOpacity = 0.2
-    }
+    private static let dateFormatter: DateFormatter = {
+        let toReturn = DateFormatter()
+        toReturn.dateStyle = .medium
+        return toReturn
+    }()
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) not implemented")
+    func populate(_ metaData: PostMetadata) {
+        titleLabel.text = metaData.title
+        authorLabel.text = metaData.author.name
+        dateLabel.text = PostMetadataCollectionViewCell.dateFormatter.string(from: metaData.publishDate)
+        summaryLabel.text = metaData.summary
     }
 }
