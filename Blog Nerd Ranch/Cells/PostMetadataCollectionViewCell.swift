@@ -26,4 +26,5 @@ class PostMetadataCollectionViewCell: UICollectionViewCell {
         dateLabel.text = PostMetadataCollectionViewCell.dateFormatter.string(from: metaData.publishDate)
         summaryLabel.text = metaData.summary
     }
+    
 }

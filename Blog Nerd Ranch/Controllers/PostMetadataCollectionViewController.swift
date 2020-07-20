@@ -24,6 +24,8 @@ class PostMetadataCollectionViewController: UICollectionViewController, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView.collectionViewLayout = Layouts.postFeedLayout()
+        
         // Do any additional setup after loading the view.
         title = "Blog Posts"
         fetchPostMetadata()
@@ -169,11 +171,12 @@ class PostMetadataCollectionViewController: UICollectionViewController, UICollec
     }
 
     // MARK: - UICollectionViewDelegateFlowLayout
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 300, height: 113)
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: { context in
+            self.collectionView.collectionViewLayout.invalidateLayout()
+        }, completion: nil)
     }
     
     // MARK: - Data methods
@@ -192,8 +195,6 @@ class PostMetadataCollectionViewController: UICollectionViewController, UICollec
                 self?.displayError(error: MetadataError.missingData)
                 return
             }
-            let str = String(decoding: data, as: UTF8.self)
-            let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [Dictionary<String,Any>]
             let metadataList: [PostMetadata]?
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601

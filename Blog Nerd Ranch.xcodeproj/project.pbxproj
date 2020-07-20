@@ -28,6 +28,7 @@
 		83C918EF213E18E500FD6F83 /* PostMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B00B0421362224000C70F9 /* PostMetadata.swift */; };
 		CBE3C41924C33EB1007A9DB1 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE3C41824C33EB1007A9DB1 /* Author.swift */; };
 		CBE3C41C24C5D323007A9DB1 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE3C41B24C5D323007A9DB1 /* DateExtensions.swift */; };
+		CBE3C41E24C660D9007A9DB1 /* Layouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE3C41D24C660D9007A9DB1 /* Layouts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		83C918E8213DDBD100FD6F83 /* DisplayOrdering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayOrdering.swift; sourceTree = "<group>"; };
 		CBE3C41824C33EB1007A9DB1 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		CBE3C41B24C5D323007A9DB1 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		CBE3C41D24C660D9007A9DB1 /* Layouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layouts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				83C918E8213DDBD100FD6F83 /* DisplayOrdering.swift */,
 				83B00B0421362224000C70F9 /* PostMetadata.swift */,
 				CBE3C41824C33EB1007A9DB1 /* Author.swift */,
+				CBE3C41D24C660D9007A9DB1 /* Layouts.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				83C918E9213DDBD100FD6F83 /* DisplayOrdering.swift in Sources */,
 				8367F7D3215C2E5000C250AC /* PostMetadataDataSource.swift in Sources */,
 				83B00AFC21359FE1000C70F9 /* PostMetadataCollectionViewController.swift in Sources */,
+				CBE3C41E24C660D9007A9DB1 /* Layouts.swift in Sources */,
 				83B00AFE2135A4C8000C70F9 /* PostMetadataCollectionViewCell.swift in Sources */,
 				83B00B03213621EE000C70F9 /* Post.swift in Sources */,
 			);
@@ -444,7 +448,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -498,7 +502,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
