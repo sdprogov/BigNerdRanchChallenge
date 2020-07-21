@@ -9,6 +9,7 @@
 import UIKit
 
 private let reuseIdentifier = "PostMetadataCollectionViewCell"
+private let sectionReuseIdentifier = "SectionHeader"
 
 enum MetadataError: Error {
     case missingData
@@ -25,6 +26,7 @@ class PostMetadataCollectionViewController: UICollectionViewController, UICollec
         super.viewDidLoad()
         
         collectionView.collectionViewLayout = Layouts.postFeedLayout()
+        collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: "SectionHeaderElementKind", withReuseIdentifier: sectionReuseIdentifier)
         
         // Do any additional setup after loading the view.
         title = "Blog Posts"
@@ -116,6 +118,15 @@ class PostMetadataCollectionViewController: UICollectionViewController, UICollec
         cell.populate(postMetadata)
     
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+
+        if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as? SectionHeader{
+            sectionHeader.sectionHeaderLabel.text = dataSource.titleForSection(indexPath.section)
+            return sectionHeader
+        }
+        return UICollectionReusableView()
     }
 
     // MARK: UICollectionViewDelegate
