@@ -22,6 +22,8 @@ class PostMetadataCollectionViewController: UICollectionViewController, UICollec
     var dataSource = PostMetadataDataSource(ordering: DisplayOrdering(grouping: .none,
                                                                       sorting: .byPublishDate(recentFirst: false)))
     
+    let spinner = SpinnerViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -140,7 +142,13 @@ class PostMetadataCollectionViewController: UICollectionViewController, UICollec
         if downloadTask?.progress.isCancellable ?? false {
             downloadTask?.cancel()
         }
+        
+        showSpinnerView()
+        
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+            
+            self?.removeSpinnerView()
+            
             guard error == nil else {
                 self?.displayError(error: error!)
                 return
@@ -192,12 +200,18 @@ class PostMetadataCollectionViewController: UICollectionViewController, UICollec
     
     // MARK: - Data methods
     func fetchPostMetadata() {
+        
+        showSpinnerView()
+        
         let url = server.allPostMetadataUrl
         
         if downloadTask?.progress.isCancellable ?? false {
             downloadTask?.cancel()
         }
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            
+            self?.removeSpinnerView()
+            
             guard error == nil else {
                 self?.displayError(error: error!)
                 return
@@ -233,3 +247,25 @@ class PostMetadataCollectionViewController: UICollectionViewController, UICollec
         print("Error: \(error.localizedDescription)")
     }
 }
+
+extension PostMetadataCollectionViewController {
+    
+    func showSpinnerView() {
+        // add the spinner view controller
+        DispatchQueue.main.async {
+            self.addChild(self.spinner)
+            self.spinner.view.frame = self.view.frame
+            self.view.addSubview(self.spinner.view)
+            self.spinner.didMove(toParent: self)
+        }
+    }
+    func removeSpinnerView() {
+        // remove the spinner view controller
+        DispatchQueue.main.async {
+            self.spinner.willMove(toParent: nil)
+            self.spinner.view.removeFromSuperview()
+            self.spinner.removeFromParent()
+        }
+    }
+}
+

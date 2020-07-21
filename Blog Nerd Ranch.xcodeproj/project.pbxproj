@@ -30,6 +30,7 @@
 		CBE3C41C24C5D323007A9DB1 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE3C41B24C5D323007A9DB1 /* DateExtensions.swift */; };
 		CBE3C41E24C660D9007A9DB1 /* Layouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE3C41D24C660D9007A9DB1 /* Layouts.swift */; };
 		CBE3C42024C66A56007A9DB1 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE3C41F24C66A56007A9DB1 /* SectionHeader.swift */; };
+		CBE3C42224C67848007A9DB1 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE3C42124C67848007A9DB1 /* SpinnerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		CBE3C41B24C5D323007A9DB1 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		CBE3C41D24C660D9007A9DB1 /* Layouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layouts.swift; sourceTree = "<group>"; };
 		CBE3C41F24C66A56007A9DB1 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		CBE3C42124C67848007A9DB1 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 			children = (
 				83B00AFB21359FE1000C70F9 /* PostMetadataCollectionViewController.swift */,
 				83B00AFF213606BC000C70F9 /* PostViewController.swift */,
+				CBE3C42124C67848007A9DB1 /* SpinnerViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				CBE3C41E24C660D9007A9DB1 /* Layouts.swift in Sources */,
 				83B00AFE2135A4C8000C70F9 /* PostMetadataCollectionViewCell.swift in Sources */,
 				83B00B03213621EE000C70F9 /* Post.swift in Sources */,
+				CBE3C42224C67848007A9DB1 /* SpinnerViewController.swift in Sources */,
 				CBE3C42024C66A56007A9DB1 /* SectionHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
