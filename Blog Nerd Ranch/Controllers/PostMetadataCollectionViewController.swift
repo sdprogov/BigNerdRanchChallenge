@@ -99,6 +99,7 @@ class PostMetadataCollectionViewController: UICollectionViewController, UICollec
     
     func sort(_ sorting: Sorting) {
         dataSource.ordering.sorting = sorting
+        collectionView.reloadData()
     }
     
     // MARK: UICollectionViewDataSource
@@ -172,11 +173,11 @@ class PostMetadataCollectionViewController: UICollectionViewController, UICollec
                 post.id == postMetadata.postId
             }
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let postController = storyboard.instantiateViewController(withIdentifier: "PostViewController") as! PostViewController
-            postController.post = selectedPost
-            
             DispatchQueue.main.async {
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let postController = storyboard.instantiateViewController(withIdentifier: "PostViewController") as! PostViewController
+                postController.post = selectedPost
                 self?.navigationController?.pushViewController(postController, animated: true)
             }
         }

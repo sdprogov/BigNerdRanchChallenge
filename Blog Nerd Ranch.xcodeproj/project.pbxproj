@@ -31,6 +31,8 @@
 		CBE3C41E24C660D9007A9DB1 /* Layouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE3C41D24C660D9007A9DB1 /* Layouts.swift */; };
 		CBE3C42024C66A56007A9DB1 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE3C41F24C66A56007A9DB1 /* SectionHeader.swift */; };
 		CBE3C42224C67848007A9DB1 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE3C42124C67848007A9DB1 /* SpinnerViewController.swift */; };
+		CBE3C42324C67B18007A9DB1 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE3C41824C33EB1007A9DB1 /* Author.swift */; };
+		CBE3C42524C687A9007A9DB1 /* MockDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE3C42424C687A9007A9DB1 /* MockDataGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,7 @@
 		CBE3C41D24C660D9007A9DB1 /* Layouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layouts.swift; sourceTree = "<group>"; };
 		CBE3C41F24C66A56007A9DB1 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		CBE3C42124C67848007A9DB1 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
+		CBE3C42424C687A9007A9DB1 /* MockDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +147,7 @@
 			children = (
 				83B00ADE21359D00000C70F9 /* PostMetadataDataSourceTests.swift */,
 				83B00AE021359D00000C70F9 /* Info.plist */,
+				CBE3C42424C687A9007A9DB1 /* MockDataGenerator.swift */,
 			);
 			path = "Blog Nerd RanchTests";
 			sourceTree = "<group>";
@@ -358,6 +362,8 @@
 				83B00ADF21359D00000C70F9 /* PostMetadataDataSourceTests.swift in Sources */,
 				83C918ED213E173400FD6F83 /* Post.swift in Sources */,
 				83C918EE213E173700FD6F83 /* DisplayOrdering.swift in Sources */,
+				CBE3C42524C687A9007A9DB1 /* MockDataGenerator.swift in Sources */,
+				CBE3C42324C67B18007A9DB1 /* Author.swift in Sources */,
 				8367F7D4215C2E5F00C250AC /* PostMetadataDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

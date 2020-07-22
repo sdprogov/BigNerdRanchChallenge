@@ -44,8 +44,6 @@ struct PostMetadataDataSource {
         case .month:
             groups = Dictionary(grouping: postMetadataList, by: { $0.month }).map { Group(name: $0.key, postMetadata: applySorting(postMetadata: $0.value)) }
         }
-        
-        print("\(groups)")
     }
     
     // MARK: UICollectionViewDataSource convenience
@@ -65,6 +63,10 @@ struct PostMetadataDataSource {
     func postMetadata(at indexPath: IndexPath) -> PostMetadata {
         return groups[indexPath.section].postMetadata[indexPath.row]
     }
+    
+    func postsInSection(_ section: Int) -> [PostMetadata] {
+        return groups[section].postMetadata
+    }
   
     // MARK: Sorting
     private func applySorting(postMetadata: [PostMetadata]) -> [PostMetadata] {
@@ -77,7 +79,8 @@ struct PostMetadataDataSource {
         case .alphabeticalByTitle(ascending: true):
             return postMetadata.sorted { $0.title.lowercased() < $1.title.lowercased() }
         case .alphabeticalByTitle(ascending: false):
-            return postMetadata.sorted { $0.title.lowercased() > $1.title.lowercased() }
+            let toReturn = postMetadata.sorted { $0.title.lowercased() > $1.title.lowercased() }
+            return toReturn
         case .byPublishDate(recentFirst: true):
             return postMetadata.sorted { $0.publishDate < $1.publishDate }
         case .byPublishDate(recentFirst: false):
